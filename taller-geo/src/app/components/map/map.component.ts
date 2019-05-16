@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { GeoService } from 'src/app/services/geo/geo.service'
+import { Subscription } from 'rxjs'
 
 @Component({
   selector: 'app-map',
@@ -17,12 +18,18 @@ export class MapComponent implements OnInit {
       height: 20
     }
   }
-
+  markers: any
+  subscription: Subscription
   constructor(private geoService:GeoService) { }
 
   ngOnInit() {
     this.getUserLocation()
+    this.subscription = this.geoService.nearGeoPoints.subscribe(points => {  this.markers = points })
   } 
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
+
   private getUserLocation() { 
     if (navigator.geolocation) {
        navigator.geolocation.getCurrentPosition(position => {
