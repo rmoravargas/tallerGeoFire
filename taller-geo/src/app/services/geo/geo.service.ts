@@ -15,11 +15,10 @@ export class GeoService {
   constructor(private angularFireDatabase: AngularFireDatabase) {
     const dbReference = this.angularFireDatabase.database.ref('/locations')
     this.geoFire = new GeoFire(dbReference)
-
-    this.initDatabase()
-
+    // this.initDatabase()
   }
   filterLocations(radius: number, coords: Array<number>) {
+    this.nearGeoPoints.next([])
     this.geoFire.query({
       center: coords,
       radius: radius

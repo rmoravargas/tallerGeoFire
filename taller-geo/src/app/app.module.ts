@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
  
 import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from '@angular/fire';
+import { FormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AngularFireModule } from '@angular/fire';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AgmCoreModule.forRoot({ apiKey: environment.googleMapsKey }),
     AngularFireDatabaseModule,
+    FormsModule 
   ],
   providers: [GeoService],
   bootstrap: [AppComponent]

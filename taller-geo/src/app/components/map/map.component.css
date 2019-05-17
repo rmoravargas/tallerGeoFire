@@ -2,3 +2,18 @@ agm-map {
     width: 100vw;
     height: 100vh;
 }
+
+.card-title {
+    color: white;
+    margin-top: -100px;
+    margin-bottom: 70px;
+}
+
+.card-over {
+    position: fixed;
+    display: flex;
+    width: 250px;
+    z-index: 9;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .85)!important;
+    border: 0px;
+}
